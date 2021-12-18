@@ -1,0 +1,12 @@
+.course-card {
+    margin-bottom: 30px;
+    cursor: pointer;
+}
+
+.discount {
+    color: green;
+}
+
+.course-name {
+    font-weight: bold;
+}
