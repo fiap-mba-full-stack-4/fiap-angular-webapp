@@ -1,4 +1,5 @@
 import { Component, OnInit } from '@angular/core';
+import { Course } from 'src/app/models/course';
 import { CourseDetail } from 'src/app/models/courseDetail';
 import { CourseService } from 'src/app/services/course.service';
 
@@ -9,7 +10,7 @@ import { CourseService } from 'src/app/services/course.service';
 })
 export class CursoCardComponent implements OnInit {
 
-    courses: CourseDetail[] = [];
+    courses: any = [];
 
     constructor(private courseService: CourseService) { }
 

@@ -1,0 +1,34 @@
+<section fxLayout="column" fxLayoutAlign="center center" fxLayoutGap="10px">
+    <mat-card class="curso">
+        <mat-card-header>
+            <mat-card-title class="discount">
+                <h3>R$ {{ course.preco_promocional }}</h3>
+            </mat-card-title>
+            <mat-card-subtitle>
+                <h3 *ngIf="course.porc_desconto && course.porc_desconto > 0">{{ course.porc_desconto }}%</h3>
+            </mat-card-subtitle>
+        </mat-card-header>
+        <img mat-card-image [src]="course.url_imagem">
+        <mat-card-content>
+            <h4 class="course-name">{{course.nome}}</h4>
+            <h5>{{course.descricao}}</h5>
+        </mat-card-content>
+    </mat-card>
+</section>
+<div class="modulos">
+    <mat-accordion *ngFor="let modulo of course.modulos">
+        <mat-expansion-panel hideToggle>
+            <mat-expansion-panel-header>
+                <mat-panel-title>
+                    <b>{{ modulo.nome }}</b>
+                </mat-panel-title>
+                <mat-panel-description>
+                    {{ modulo.carga_horaria }}
+                </mat-panel-description>
+            </mat-expansion-panel-header>
+            <div *ngFor="let conteudo of modulo.conteudos" class="conteudo">
+                <p>{{ conteudo.descricao }}</p>
+            </div> 
+        </mat-expansion-panel>
+    </mat-accordion>
+</div>

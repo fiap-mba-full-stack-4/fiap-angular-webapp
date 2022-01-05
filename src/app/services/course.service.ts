@@ -8,11 +8,15 @@ import { CourseDetail } from '../models/courseDetail';
 })
 export class CourseService {
 
-    baseURL: string = "http://localhost:3001/";
+    baseURL: string = "http://localhost:8082/";
 
     constructor(private http: HttpClient) { }
 
     getCourses() {
-        return this.http.get<CourseDetail[]>(this.baseURL + 'cursos/')
+        return this.http.get<Course[]>(this.baseURL + 'cursos/')
+    }
+
+    getCourseDetails(id: number) {
+        return this.http.get<CourseDetail>(this.baseURL + 'cursos/' + id)
     }
 }
