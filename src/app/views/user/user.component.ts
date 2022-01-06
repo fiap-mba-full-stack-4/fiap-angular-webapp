@@ -1,5 +1,6 @@
 import { Component, OnInit } from '@angular/core';
 import { ActivatedRoute } from '@angular/router';
+import { FormBuilder, FormGroup } from '@angular/forms';
 
 @Component({
     selector: 'app-user',
@@ -9,17 +10,29 @@ import { ActivatedRoute } from '@angular/router';
 export class UserComponent implements OnInit {
 
     isUserRegister: boolean = false;
+    submitBtnLbl: string = "";
+    isEditing: boolean = false;
+    userProfileForm: FormGroup = this.formBuilder.group({
+        name: "",
+        email: "",
+        password: "",
+        passwordConfirmation: ""
+    })
 
-    constructor(public route: ActivatedRoute) {
-
+    constructor(private route: ActivatedRoute, private formBuilder: FormBuilder) {
+        this.isUserRegister = this.route.snapshot.data.isUserRegister === undefined ? false : this.route.snapshot.data.isUserRegister;
+        this.submitBtnLbl = this.isUserRegister ? "Criar" : "Salvar";
+        this.isEditing = this.isUserRegister
     }
 
-    ngOnInit(): void {
-        this.isUserRegister = this.route.snapshot.data.isUserRegister === undefined ? false : this.route.snapshot.data.isUserRegister;
-        console.log(this.route.snapshot);
+    ngOnInit(): void { }
 
-        console.log(this.isUserRegister);
+    onSubmit(): void {
+        alert("Submit");
+    }
 
+    toggleEdit(edit: boolean): void {
+        this.isEditing = edit;
     }
 
 }
