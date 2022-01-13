@@ -2,6 +2,7 @@ import { NgModule } from '@angular/core';
 import { RouterModule, Routes } from '@angular/router';
 import { CursoDetailsComponent } from './views/curso-details/curso-details.component';
 import { HomeComponent } from './views/home/home.component';
+import { LoginComponent } from './views/login/login.component';
 import { UserComponent } from './views/user/user.component';
 
 const routes: Routes = [
@@ -17,7 +18,7 @@ const routes: Routes = [
         path: "user",
         children: [
             {
-                path: "detail/:userId",
+                path: "details/:userId",
                 component: UserComponent,
             },
             {
@@ -28,7 +29,11 @@ const routes: Routes = [
                 }
             }
         ]
-    }
+    },
+    {
+        path: "login",
+        component: LoginComponent
+    },
 ];
 
 @NgModule({

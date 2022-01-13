@@ -1,6 +1,7 @@
 <div *ngIf="courses">
     <div fxLayout="row wrap" fxLayout.xs="column" fxLayoutAlign="space-around center" fxLayoutGap="25px">
-        <mat-card class="course-card" *ngFor="let course of courses.cursos" fxFlex="calc(33%-25px)" fxFlex.sm="calc(50%-25px)">
+        <mat-card class="course-card" *ngFor="let course of courses.cursos" fxFlex="calc(33%-25px)"
+            fxFlex.sm="calc(50%-25px)">
             <div [routerLink]="['details', course.id]">
                 <mat-card-header>
                     <mat-card-title class="discount">

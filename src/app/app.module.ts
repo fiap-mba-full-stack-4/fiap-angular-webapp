@@ -19,6 +19,7 @@ import { UserComponent } from './views/user/user.component';
 import { MatFormFieldModule } from '@angular/material/form-field';
 import { MatButtonModule } from '@angular/material/button';
 import { MatInputModule } from '@angular/material/input';
+import { LoginComponent } from './views/login/login.component';
 
 @NgModule({
     declarations: [
@@ -27,7 +28,8 @@ import { MatInputModule } from '@angular/material/input';
         TopBarComponent,
         CursoCardComponent,
         CursoDetailsComponent,
-        UserComponent
+        UserComponent,
+        LoginComponent
     ],
     imports: [
         BrowserModule,

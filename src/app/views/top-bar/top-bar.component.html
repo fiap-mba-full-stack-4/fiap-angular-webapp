@@ -1,3 +1,9 @@
-<mat-toolbar color="primary">
-    <mat-icon aria-hidden="false" aria-label="Example home icon" routerLink="/">home</mat-icon>
+<mat-toolbar class="fixed-toolbar">
+    <button mat-icon-button aria-label="home icon" routerLink="/">
+        <mat-icon>home</mat-icon>
+    </button>
+    <span class="spacer"></span>
+    <button mat-icon-button aria-label="user icon" [routerLink]="userIconLink">
+        <mat-icon>account_circle</mat-icon>
+    </button>
 </mat-toolbar>

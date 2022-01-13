@@ -1,24 +1,26 @@
 <div id="user-form-container">
     <form id="user-form" [formGroup]="userProfileForm" (ngSubmit)="onSubmit()">
-        <mat-form-field appearance="outline">
+        <mat-form-field appearance="outline" [hideRequiredMarker]="!isEditing">
             <mat-label>Nome</mat-label>
-            <input matInput type="text" name="name" id="userName" formControlName="name">
+            <input matInput type="text" name="name" id="userName" formControlName="name" [readonly]="!isEditing"
+                required>
         </mat-form-field>
 
-        <mat-form-field appearance="outline">
+        <mat-form-field appearance="outline" [hideRequiredMarker]="!isUserRegister">
             <mat-label for="email">Email</mat-label>
-            <input matInput type="email" name="email" id="userEmail" formControlName="email">
+            <input matInput type="email" name="email" id="userEmail" formControlName="email"
+                [readonly]="!isUserRegister" required>
         </mat-form-field>
 
-        <mat-form-field appearance="outline">
+        <mat-form-field *ngIf="isEditing" appearance="outline">
             <mat-label for="password">Senha</mat-label>
-            <input matInput type="password" name="password" id="userPassword" formControlName="password">
+            <input matInput type="password" name="password" id="userPassword" formControlName="password" required>
         </mat-form-field>
 
-        <mat-form-field appearance="outline">
+        <mat-form-field *ngIf="isEditing" appearance="outline">
             <mat-label for="passwordConfirmation">Confirma a senha</mat-label>
             <input matInput type="password" name="passwordConfirmation" id="userPasswordConfirmation"
-                formControlName="passwordConfirmation">
+                formControlName="passwordConfirmation" required>
         </mat-form-field>
 
         <button class="margin-bottom" mat-raised-button color="primary" type="submit"
@@ -27,7 +29,7 @@
             (click)="toggleEdit(true)">Editar</button>
         <button class="margin-bottom" mat-raised-button color="warn" *ngIf="!isUserRegister && !isEditing">Sair</button>
         <button class="margin-bottom" mat-raised-button color="basic" *ngIf="!isUserRegister && isEditing"
-            (click)="toggleEdit(false)">Cancelar</button>
+            (click)="cancelEdit()">Cancelar</button>
 
     </form>
 </div>
