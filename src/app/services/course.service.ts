@@ -1,5 +1,6 @@
 import { HttpClient } from '@angular/common/http';
 import { Injectable } from '@angular/core';
+import { environment } from 'src/environments/environment';
 import { Course } from '../models/course';
 import { CourseDetail } from '../models/courseDetail';
 
@@ -8,7 +9,7 @@ import { CourseDetail } from '../models/courseDetail';
 })
 export class CourseService {
 
-    baseURL: string = "http://localhost:8082/";
+    baseURL: string = environment.webapiurl;
 
     constructor(private http: HttpClient) { }
 
