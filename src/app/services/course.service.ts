@@ -14,10 +14,10 @@ export class CourseService {
     constructor(private http: HttpClient) { }
 
     getCourses() {
-        return this.http.get<Course[]>(this.baseURL + 'cursos/')
+        return this.http.get<Course[]>(this.baseURL + 'courses/')
     }
 
     getCourseDetails(id: number) {
-        return this.http.get<CourseDetail>(this.baseURL + 'cursos/' + id)
+        return this.http.get<CourseDetail>(this.baseURL + 'courses/' + id)
     }
 }

@@ -2,5 +2,5 @@
     window["envconfig"] = window["envconfig"] || {};
 
     // Environment variables
-    window["envconfig"]["apiurl"] = "http://localhost:3001/";
+    window["envconfig"]["apiurl"] = "http://localhost:8084/";
 })(this);

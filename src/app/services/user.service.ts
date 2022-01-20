@@ -4,7 +4,7 @@ import { Observable } from 'rxjs';
 import { environment } from 'src/environments/environment';
 import { User } from '../models/user';
 
-const USER_API = environment.webapiurl + 'usuarios';
+const USER_API = environment.webapiurl + 'users';
 
 const httpOptions = {
     headers: new HttpHeaders({ 'Content-Type': 'appication/json' })

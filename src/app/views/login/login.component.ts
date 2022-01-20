@@ -3,6 +3,8 @@ import { FormBuilder, FormGroup } from '@angular/forms';
 import { Router } from '@angular/router';
 import { AuthService } from 'src/app/services/auth.service';
 import { TokenStorageService } from 'src/app/services/token-storage.service';
+import { faGoogle, faGithub, IconDefinition } from '@fortawesome/free-brands-svg-icons';
+import { faSignInAlt } from '@fortawesome/free-solid-svg-icons';
 
 @Component({
     selector: 'app-login',
@@ -12,6 +14,9 @@ import { TokenStorageService } from 'src/app/services/token-storage.service';
 export class LoginComponent implements OnInit {
 
     isLoggedIn: boolean = false;
+    faGoogle: IconDefinition = faGoogle;
+    faGithub: IconDefinition = faGithub;
+    faSignInAlt: IconDefinition = faSignInAlt;
 
     loginForm: FormGroup = this.formBuilder.group({
         email: '',
@@ -24,6 +29,8 @@ export class LoginComponent implements OnInit {
     }
 
     onSubmit(): void {
+        console.log("teste 1");
+
         const { email, password } = this.loginForm.value;
         let successLogin: boolean = false;
         this.authService.login(email).subscribe(
@@ -47,5 +54,31 @@ export class LoginComponent implements OnInit {
                 this.loginForm.reset();
             }
         )
+    }
+
+    loginGoogle(): void {
+        this.authService.loginGoogle().subscribe(
+            data => {
+                if (!!data) {
+                    this.tokenStorage.saveUser(data[0]);
+                    this.router.navigate(['/']);
+                }
+            }
+        )
+
+    }
+
+    loginGithub(): void {
+
+        console.log("teste 2");
+        this.authService.loginGithub().subscribe(
+            data => {
+                if (!!data) {
+                    this.tokenStorage.saveUser(data[0]);
+                    this.router.navigate(['/']);
+                }
+            }
+        )
+
     }
 }

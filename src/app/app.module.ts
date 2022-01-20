@@ -20,6 +20,7 @@ import { MatFormFieldModule } from '@angular/material/form-field';
 import { MatButtonModule } from '@angular/material/button';
 import { MatInputModule } from '@angular/material/input';
 import { LoginComponent } from './views/login/login.component';
+import { FontAwesomeModule } from '@fortawesome/angular-fontawesome';
 
 @NgModule({
     declarations: [
@@ -48,7 +49,8 @@ import { LoginComponent } from './views/login/login.component';
         MatFormFieldModule,
         MatButtonModule,
         FormsModule,
-        MatInputModule
+        MatInputModule,
+        FontAwesomeModule
     ],
     providers: [],
     bootstrap: [AppComponent]
