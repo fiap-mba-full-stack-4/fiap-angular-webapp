@@ -1,14 +1,13 @@
 <div *ngIf="courses">
     <div fxLayout="row wrap" fxLayout.xs="column" fxLayoutAlign="space-around center" fxLayoutGap="25px">
-        <mat-card class="course-card" *ngFor="let course of courses" fxFlex="calc(33%-25px)"
-            fxFlex.sm="calc(50%-25px)">
+        <mat-card class="course-card" *ngFor="let course of courses" fxFlex="calc(33%-25px)" fxFlex.sm="calc(50%-25px)">
             <div [routerLink]="['details', course.id]">
                 <mat-card-header>
                     <mat-card-title class="discount">
                         <h3 *ngIf="course.porc_desconto && course.porc_desconto > 0">{{ course.porc_desconto }}%</h3>
                     </mat-card-title>
                 </mat-card-header>
-                <!-- <img mat-card-image [src]="course.url_imagem"> -->
+                <img mat-card-image [src]="course.url_imagem">
                 <mat-card-content>
                     <h4 class="course-name">{{course.nome}}</h4>
                     <h5>{{course.descricao}}</h5>
