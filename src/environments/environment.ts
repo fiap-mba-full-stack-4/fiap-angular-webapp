@@ -4,8 +4,7 @@
 
 export const environment = {
     production: false,
-    gatewayApiUrl: (window as any)["envconfig"]["gatewayApiUrl"] || "default",
-    userApiUrl: (window as any)["envconfig"]["userApiUrl"] || "default"
+    gatewayApiUrl: (window as any)["envconfig"]["apiurl"] || "default"
 };
 
 /*
