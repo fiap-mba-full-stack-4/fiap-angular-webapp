@@ -9,15 +9,15 @@ import { CourseDetail } from '../models/courseDetail';
 })
 export class CourseService {
 
-    baseURL: string = environment.webapiurl;
+    baseURL: string = environment.gatewayApiUrl;
 
     constructor(private http: HttpClient) { }
 
     getCourses() {
-        return this.http.get<Course[]>(this.baseURL + 'courses/')
+        return this.http.get<Course[]>(this.baseURL + '/courses/')
     }
 
     getCourseDetails(id: number) {
-        return this.http.get<CourseDetail>(this.baseURL + 'courses/' + id)
+        return this.http.get<CourseDetail>(this.baseURL + '/courses/' + id)
     }
 }
