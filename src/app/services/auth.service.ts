@@ -5,7 +5,7 @@ import { environment } from 'src/environments/environment';
 import { User } from '../models/user';
 
 const USER_API = environment.gatewayApiUrl + '/users';
-const AUTH_API = environment.userApiUrl + '/oauth2/authorization';
+const AUTH_API = USER_API + '/oauth2/authorization';
 
 const httpOptions = {
     headers: new HttpHeaders({ 'Content-Type': 'appication/json' })
