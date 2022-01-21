@@ -1,0 +1,17 @@
+apiVersion: fiap-angular-webapp/v1
+kind: Deployment
+metadata:
+  name: fiap-angular-webapp-deployment
+spec:
+  replicas: 1
+  template:
+    metadata:
+      labels:
+        label-key : label-value
+    spec:
+      containers:
+        - name: fiap-angular-webapp-container
+          image: ayonei/fiap-angular-webapp:v1
+          imagePullPolicy: Always
+          ports:
+          - containerPort: 8080
