@@ -29,24 +29,16 @@ export class LoginComponent implements OnInit {
     }
 
     onSubmit(): void {
-        console.log("teste 1");
-
         const { email, password } = this.loginForm.value;
-        let successLogin: boolean = false;
-        this.authService.login(email).subscribe(
+        if (!email || !password) {
+            alert("Informa email e senha para logar.");
+            return;
+        }
+        this.authService.login(email, password).subscribe(
             data => {
-                if (!!data && data.length > 0) {
-                    if (password === data[0].password) {
-                        successLogin = true;
-                        data[0].password = undefined;
-                        this.tokenStorage.saveUser(data[0]);
-
-                    }
-                }
-                if (successLogin) {
+                if (data) {
+                    this.tokenStorage.saveUser(data);
                     this.router.navigate(['/']);
-                } else {
-                    alert("Login ou Senha inválidos")
                 }
             },
             err => {
@@ -60,7 +52,7 @@ export class LoginComponent implements OnInit {
         this.authService.loginGoogle().subscribe(
             data => {
                 if (!!data) {
-                    this.tokenStorage.saveUser(data[0]);
+                    this.tokenStorage.saveUser(data);
                     this.router.navigate(['/']);
                 }
             }
@@ -69,12 +61,10 @@ export class LoginComponent implements OnInit {
     }
 
     loginGithub(): void {
-
-        console.log("teste 2");
         this.authService.loginGithub().subscribe(
             data => {
                 if (!!data) {
-                    this.tokenStorage.saveUser(data[0]);
+                    this.tokenStorage.saveUser(data);
                     this.router.navigate(['/']);
                 }
             }

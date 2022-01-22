@@ -18,23 +18,26 @@ export class AuthService {
 
     constructor(private http: HttpClient) { }
 
-    login(email: string): Observable<User[] | null> {
-        return this.http.get<User[] | null>(USER_API + `?email=${email}`, httpOptions);
+    login(email: string, password: string): Observable<User> {
+        return this.http.post<User>(USER_API + `/login`, {
+            'email': email,
+            'password': password
+        }, httpOptions);
     }
 
-    register(name: string, email: string, password: string): Observable<any> {
-        return this.http.post(USER_API + '/', {
+    register(name: string, email: string, password: string): Observable<User> {
+        return this.http.post<User>(USER_API + '/', {
             'nome': name,
             'email': email,
             'password': password
         }, httpOptions);
     }
 
-    loginGoogle(): Observable<any> {
-        return this.http.get<any>(AUTH_API + '/google', httpOptions);
+    loginGoogle(): Observable<User> {
+        return this.http.get<User>(AUTH_API + '/google', httpOptions);
     }
 
-    loginGithub(): Observable<any> {
-        return this.http.get<any>(AUTH_API + '/github', httpOptions);
+    loginGithub(): Observable<User> {
+        return this.http.get<User>(AUTH_API + '/github', httpOptions);
     }
 }

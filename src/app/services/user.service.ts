@@ -17,23 +17,11 @@ export class UserService {
 
     constructor(private http: HttpClient) { }
 
-    update(userId: string, name: string, password: string): Observable<User[] | null> | null {
+    update(userId: string, name: string, password: string): Observable<User> {
         let updateUser;
-        this.http.put<string>(`${USER_API}/${userId}`, {
+        return this.http.put<User>(`${USER_API}/${userId}`, {
             nome: name,
             password: password
-        }, httpOptions).subscribe(
-            data => {
-                updateUser = data
-            }
-        );
-        console.log(updateUser);
-        if (updateUser) {
-            return this.http.get<User[] | null>(`${USER_API}/${userId}`, httpOptions);
-        }
-        else {
-            return null
-        }
-
+        }, httpOptions);
     }
 }

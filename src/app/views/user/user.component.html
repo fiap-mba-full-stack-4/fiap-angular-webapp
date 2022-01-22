@@ -26,9 +26,10 @@
         <button class="margin-bottom" mat-raised-button color="primary" type="submit"
             *ngIf="isUserRegister || (!isUserRegister && isEditing)">{{submitBtnLbl}}</button>
         <button class="margin-bottom" mat-raised-button color="primary" *ngIf="!isUserRegister && !isEditing"
-            (click)="toggleEdit(true)">Editar</button>
-        <button class="margin-bottom" mat-raised-button color="warn" *ngIf="!isUserRegister && !isEditing">Sair</button>
-        <button class="margin-bottom" mat-raised-button color="basic" *ngIf="!isUserRegister && isEditing"
+            type="button" (click)="toggleEdit(true)">Editar</button>
+        <button class="margin-bottom" mat-raised-button color="warn" *ngIf="!isUserRegister && !isEditing"
+            (click)="logout()" type="button">Sair</button>
+        <button class="margin-bottom" mat-raised-button color="basic" *ngIf="!isUserRegister && isEditing" type="button"
             (click)="cancelEdit()">Cancelar</button>
 
     </form>
