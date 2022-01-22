@@ -8,7 +8,7 @@ const USER_API = environment.gatewayApiUrl + '/users';
 const AUTH_API = USER_API + '/oauth2/authorization';
 
 const httpOptions = {
-    headers: new HttpHeaders({ 'Content-Type': 'appication/json' })
+    headers: new HttpHeaders({ 'Content-Type': 'application/json' })
 };
 
 @Injectable({

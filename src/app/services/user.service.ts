@@ -7,7 +7,7 @@ import { User } from '../models/user';
 const USER_API = environment.gatewayApiUrl + '/users';
 
 const httpOptions = {
-    headers: new HttpHeaders({ 'Content-Type': 'appication/json' })
+    headers: new HttpHeaders({ 'Content-Type': 'application/json' })
 };
 
 @Injectable({
