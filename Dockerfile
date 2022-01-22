@@ -17,4 +17,4 @@ RUN npm run build --prod
 
 FROM nginx:1.20.1
 COPY --from=build-step /app/dist/fiap-ng-docker /usr/share/nginx/html
-EXPOSE 4200:80
+EXPOSE 4200:4200
